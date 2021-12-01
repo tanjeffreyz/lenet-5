@@ -1,6 +1,6 @@
 <h1 align="center">PyLeNet 5</h1>
 
-PyTorch implementation of LeNet-5.
+PyTorch implementation of the LeNet-5 architecture.
 <br><br>
 <h2>References</h2>
 
