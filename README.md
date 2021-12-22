@@ -1,6 +1,6 @@
 <h1 align="center">PyLeNet 5</h1>
 
-My first paper implementation! Building the LeNet-5 architecture using PyTorch and comparing its results to the publication's findings.
+An implementation of the LeNet-5 architecture using PyTorch.
 <br><br>
 
 <h2>References</h2>
