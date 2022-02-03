@@ -4,8 +4,7 @@ An implementation of the LeNet-5 architecture using PyTorch. Here are the losses
 <div align="center">
   <img src="https://github.com/tanjeffreyz02/py-lenet-5/blob/cc14503e76c8d41975570e4f0d84af6847bff077/models/lenet-5/02_02_2022/15_27_14/losses.png" />
 </div>
-Overall, the LeNet-5 architecture was able to achieve an accuracy of roughly 99.1% (error rate of 0.9%) on the MNIST dataset, which supports the publication's findings of a 0.95% error rate.
-
+Overall, the LeNet-5 architecture was able to achieve an accuracy of roughly 99.1% (error rate of 0.9%) on the MNIST dataset, which supports the 0.95% error rate found in [1].
 
 <h2>Instructions</h2>
 <ol>
