@@ -1,4 +1,4 @@
-<h1 align="center">Py-LeNet-5</h1>
+<h1 align="center">LeNet-5</h1>
 
 An implementation of the LeNet-5 architecture using PyTorch. Here are the losses and accuracies over 25 epochs, with the minimum test loss and maximum test accuracy labeled:
 <div align="center">
