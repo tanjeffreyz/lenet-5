@@ -12,6 +12,8 @@ from models import PyLeNet5
 from matplotlib import pyplot as plt
 
 
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+print(f'[~] Using {device}')
 writer = SummaryWriter()
 
 # Make directories
@@ -24,7 +26,7 @@ if not os.path.isdir(weights_dir):
     os.makedirs(weights_dir)
 
 # Initialize globals
-model = PyLeNet5()
+model = PyLeNet5().to(device)
 learning_rate = 0.001
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 loss_function = torch.nn.CrossEntropyLoss()
@@ -39,8 +41,8 @@ test_set = MNIST('data', train=False, download=True,
                      T.Resize((32, 32)),
                      T.ToTensor()]))
 
-train_batch_size = 128
-test_batch_size = 128
+train_batch_size = 256
+test_batch_size = 256
 train_loader = DataLoader(train_set, batch_size=train_batch_size, shuffle=True)
 test_loader = DataLoader(test_set, batch_size=test_batch_size)
 
@@ -76,6 +78,9 @@ for epoch in tqdm(range(25)):
     train_loss = 0
     accuracy = 0
     for images, targets in train_loader:
+        images = images.to(device)
+        targets = targets.to(device)
+
         optimizer.zero_grad()
         output = model.forward(images)
         loss = loss_function(output, targets)
@@ -84,6 +89,8 @@ for epoch in tqdm(range(25)):
 
         train_loss += loss.item() / len(train_set) * train_batch_size
         accuracy += targets.eq(torch.argmax(output, 1)).sum().item() / len(train_set)
+
+        del images, targets
 
     writer.add_scalar('Loss/train', train_loss, epoch)
     writer.add_scalar('Accuracy/train', accuracy, epoch)
@@ -102,11 +109,16 @@ for epoch in tqdm(range(25)):
         model.eval()
         with torch.no_grad():
             for images, targets in test_loader:
+                images = images.to(device)
+                targets = targets.to(device)
+
                 output = model.forward(images)
                 loss = loss_function(output, targets)
 
                 test_loss += loss.item() / len(test_set) * test_batch_size
                 accuracy += targets.eq(torch.argmax(output, 1)).sum().item() / len(test_set)
+
+                del images, targets
         model.train()
 
         writer.add_scalar('Loss/test', test_loss, epoch)
