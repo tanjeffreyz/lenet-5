@@ -1,7 +1,7 @@
 <!--  
 mlpi
 title: Gradient-Based Learning Applied to Document Recognition (LeNet-5)
-authors: Y. Lecun, L. Bottou, Y. Bengio, P. Haffner
+
 images: models/lenet-5/02_02_2022/15_27_14/losses.png
 category: Architectures/Convolutional Neural Networks
 -->
