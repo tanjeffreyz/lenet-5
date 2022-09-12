@@ -8,7 +8,7 @@ category: Architectures/Convolutional Neural Networks
 
 
 <h1 align="center">LeNet-5</h1>
-
+ 
 An implementation of the LeNet-5 architecture using PyTorch. Here are the losses and accuracies over 25 epochs, with the minimum test loss and maximum test accuracy labeled:
 <div align="center">
   <img src="https://github.com/tanjeffreyz02/py-lenet-5/blob/cc14503e76c8d41975570e4f0d84af6847bff077/models/lenet-5/02_02_2022/15_27_14/losses.png" />
